@@ -1,0 +1,10 @@
+<header>
+    <nav>
+        <span *ngIf="checksessionstorage()" routerLink="/dashboard">{{title()}}</span>
+        <span *ngIf="!checksessionstorage()" routerLink="/">{{title()}}</span>
+    </nav>
+
+    <ul *ngIf="checksessionstorage()">
+        <li> <button matButton style="color: aliceblue; box-shadow: white;" (click)="logout()" routerLink="/">Logout</button></li>
+    </ul>
+</header>

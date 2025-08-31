@@ -1,0 +1,23 @@
+<form [formGroup]="fGroup" (submit)="login()">
+  <h1>Login</h1>
+
+  <div class="form-control">
+    <label for="name">Name</label>
+    <input
+      formControlName="name"
+      id="name"
+      type="name"
+    />
+  </div>
+
+  <div class="form-control">
+    <label for="password">Password</label>
+    <input
+      formControlName="password"
+      id="password"
+      type="password"
+    />
+  </div>
+
+  <button type="submit">Login</button>
+</form>

@@ -1,0 +1,16 @@
+<div style="justify-content: center;margin:auto;">
+<ng-container *ngIf="checkStudent()">
+    <h1>Welcome student.</h1>
+    <br>
+<button matButton="filled" routerLink="/extra">Check Extracurriculum activities</button>
+</ng-container>
+
+<ng-container *ngIf="checkTeacher()">
+    <h1>Welcome teacher.</h1>
+<button matButton="filled" routerLink="/grades">Add or Export Grades</button>
+<br>
+<button matButton="filled" routerLink="/extra">Add and Check Extracurriculum activities</button>
+<br>
+<button matButton="filled" routerLink="/quiz">Create and print Quiz</button>
+</ng-container>
+</div>

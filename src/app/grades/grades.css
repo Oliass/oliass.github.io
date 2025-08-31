@@ -1,0 +1,12 @@
+table {
+  width: 100%;
+}
+
+
+.mat-mdc-header-row{
+    background-color: rgb(127, 163, 255) !important;
+}
+
+.mat-mdc-row:nth-child(even){
+    background-color: antiquewhite;
+}
