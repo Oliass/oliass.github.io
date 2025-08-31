@@ -14,14 +14,14 @@ export class ExtracurrService {
   extraSaveUrl:string="api/extrasave";
 
   fetchAllExtracurriculum():Observable<Extracurriculum[]>{
-    return this._httpClient.get<Extracurriculum[]>(`https://51.21.254.31/${this.extraCurrUrl}`)
+    return this._httpClient.get<Extracurriculum[]>(`http://51.21.254.31/${this.extraCurrUrl}`)
   }
 
   AddExtracurriculum(data:PostExtra){
-      return this._httpClient.post<PostExtra>(`https://51.21.254.31/${this.extraCurrUrl}`,data);
+      return this._httpClient.post<PostExtra>(`http://51.21.254.31/${this.extraCurrUrl}`,data);
   }
 
   AddExtraStudent(data:PostExtraStudent){
-      return this._httpClient.post<PostExtraStudent>(`https://51.21.254.31/${this.extraSaveUrl}`,data);
+      return this._httpClient.post<PostExtraStudent>(`http://51.21.254.31/${this.extraSaveUrl}`,data);
   }
 }
