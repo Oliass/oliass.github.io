@@ -16,17 +16,17 @@ export class GradesService {
   subjectsUrl:String="api/subjects"
 
   fetchAllGrades():Observable<SubjectGrades[]>{
-    return this._httpClient.get<SubjectGrades[]>(`${this.gradesUrl}`)
+    return this._httpClient.get<SubjectGrades[]>(`http://51.21.254.31/${this.gradesUrl}`)
   }
 
   fetchAllStudents(){
-    return this._httpClient.get<StudentsList[]>(`${this.studentsUrl}`);
+    return this._httpClient.get<StudentsList[]>(`http://51.21.254.31/${this.studentsUrl}`);
   }
 
   fetchAllSubjects(){
-    return this._httpClient.get<Subjects[]>(`${this.subjectsUrl}`);
+    return this._httpClient.get<Subjects[]>(`http://51.21.254.31/${this.subjectsUrl}`);
   }
   AddGrade(data:PostGrade){
-    return this._httpClient.post<PostGrade>(`${this.gradesUrl}`,data);
+    return this._httpClient.post<PostGrade>(`http://51.21.254.31/${this.gradesUrl}`,data);
   }
 }
