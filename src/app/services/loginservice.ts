@@ -7,8 +7,8 @@ import { loginRequest } from '../model/loginRequest.type';
 })
 export class Loginservice {
   constructor(private _httpClient:HttpClient){}
-  loginUrl:String="http://51.21.254.31/api/login";
-  logoutUrl:String="http://51.21.254.31/api/logout";
+  loginUrl:String="https://cors-anywhere.herokuapp.com/http://51.21.254.31:5001/api/login";
+  logoutUrl:String="https://cors-anywhere.herokuapp.com/http://51.21.254.31:5001/api/logout";
 
   loginService(data:string){
     return this._httpClient.post<loginRequest>(`${this.loginUrl}`,data,{
