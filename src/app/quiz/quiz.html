@@ -1,6 +1,6 @@
 <div class="row">
-      <button (click)="mode='build'" [disabled]="mode==='build'"><mat-icon>save</mat-icon> Edit</button>
-      <button (click)="mode='print'" [disabled]="mode==='print' || questions.length===0"><mat-icon>printer</mat-icon>Print</button>
+      <button (click)="mode='build'" [disabled]="mode==='build'" mat-flat-button><mat-icon>save</mat-icon> Edit</button>
+      <button (click)="mode='print'" [disabled]="mode==='print' || questions.length===0" mat-flat-button><mat-icon>printer</mat-icon>Print</button>
 </div>
 
     <ng-container *ngIf="mode==='build'">
@@ -17,8 +17,8 @@
         </div>
 
         <div class="actions">
-          <button type="submit" [disabled]="fGroup.invalid">{{ fGroup.value.id ? '💾Save Changes' : '➕Add Question' }}</button>
-          <button type="button" (click)="resetForm()">Clear</button>
+          <button type="submit" [disabled]="fGroup.invalid" mat-flat-button>{{ fGroup.value.id ? '💾Save Changes' : '➕Add Question' }}</button>
+          <button type="button" (click)="resetForm()" mat-flat-button>Clear</button>
         </div>
       </form>
 
@@ -28,10 +28,10 @@
           <div class="qheader">
             <strong>{{i+1}} {{q.text}}</strong>
             <div class="reorder">
-              <button (click)="moveToTop(i)" [disabled]="i===0" title="Top">⤒</button>
-              <button (click)="moveUp(i)" [disabled]="i===0" title="Up">▲</button>
-              <button (click)="moveDown(i)" [disabled]="i===questions.length-1" title="Down">▼</button>
-              <button (click)="moveToBottom(i)" [disabled]="i===questions.length-1" title="Bottom">⤓</button>
+              <button (click)="moveToTop(i)" [disabled]="i===0" title="Top" mat-flat-button>⤒</button>
+              <button (click)="moveUp(i)" [disabled]="i===0" title="Up" mat-flat-button>▲</button>
+              <button (click)="moveDown(i)" [disabled]="i===questions.length-1" title="Down" mat-flat-button>▼</button>
+              <button (click)="moveToBottom(i)" [disabled]="i===questions.length-1" title="Bottom" mat-flat-button>⤓</button>
             </div>
           </div>
 
@@ -39,8 +39,8 @@
             <li *ngFor="let k of keys"><span class="letter small">{{k}}</span> {{q.choices[k]}}</li>
           </ul>
           <div class="actions">
-            <button (click)="edit(i)">✏️ Edit</button>
-            <button (click)="remove(i)">🗑️ Delete</button>
+            <button (click)="edit(i)" mat-flat-button>✏️ Edit</button>
+            <button (click)="remove(i)" mat-flat-button>🗑️ Delete</button>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
 
     <ng-container *ngIf="mode==='print' && questions.length">
         <h2>Questions</h2>
-        <button printSectionId="print-section" ngxPrint>Print</button>
+        <button printSectionId="print-section" ngxPrint mat-flat-button>Print</button>
       <div id="print-section">
         <div *ngFor="let q of questions; let i = index" class="qcard">
           <div>

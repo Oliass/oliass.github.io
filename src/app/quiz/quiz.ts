@@ -3,7 +3,8 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
 import {NgxPrintModule} from 'ngx-print';
-
+import {MatButton} from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 type ChoiceKey = 'A' | 'B' | 'C' | 'D';
 
@@ -15,7 +16,7 @@ type Question = {
 
 @Component({
   selector: 'app-quiz',
-  imports: [ReactiveFormsModule, NgForOf, NgIf, NgxPrintModule, MatIcon],
+  imports: [ReactiveFormsModule, NgForOf, NgIf, NgxPrintModule, MatIcon, MatButton, MatFormFieldModule],
   templateUrl: './quiz.html',
   styleUrl: './quiz.css'
 })

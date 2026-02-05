@@ -29,9 +29,13 @@ export class ExtraCurr implements AfterViewInit{
 
 
    dataSource = new MatTableDataSource<Extracurriculum>;
+   dataSourceapp = new MatTableDataSource<Extracurriculum>;
+   dataSourceex = new MatTableDataSource<Extracurriculum>;
   columnsToDisplay = ['title'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   extras:Extracurriculum[]=[];
+  extras2:Extracurriculum[]=[];
+  extras3:Extracurriculum[]=[];
 
 
   constructor(private extracurrService:ExtracurrService){};
@@ -41,6 +45,17 @@ export class ExtraCurr implements AfterViewInit{
       this.extras=data;
       this.dataSource=new MatTableDataSource<Extracurriculum>(data);
       console.log(this.extras);
+    })
+    let id:number = Number(sessionStorage.getItem("userid"))
+    this.extracurrService.fetchStudentExtracurriculum(id).subscribe((data)=>{
+      this.extras2=data;
+      this.dataSourceapp=new MatTableDataSource<Extracurriculum>(data);
+      console.log(this.extras2);
+    })
+    this.extracurrService.fetchExceptStudentExtracurriculum(id).subscribe((data)=>{
+      this.extras3=data;
+      this.dataSourceex=new MatTableDataSource<Extracurriculum>(data);
+      console.log(this.extras3);
     })
   }
 
@@ -89,6 +104,23 @@ AddExtracurr(){
     this.extracurrService.AddExtraStudent(tempextrastud).subscribe({
       next: (data)=>{
         console.log('ExtraCurriculum Student added Successfully')
+        window.location.reload();
+      },
+      error:(err)=>{
+        console.log("Error");
+        console.log(err);
+      }
+    });
+  }
+  DeleteExtracurrStud(id:string){
+    let tempextrastud:PostExtraStudent = {
+      extraid: Number(id),
+      student: Number(sessionStorage.getItem("userid")),
+  }
+    this.extracurrService.DeleteExtraStudent(tempextrastud.extraid,tempextrastud.student).subscribe({
+      next: (data)=>{
+        console.log('ExtraCurriculum Student deleted Successfully')
+        window.location.reload();
       },
       error:(err)=>{
         console.log("Error");
